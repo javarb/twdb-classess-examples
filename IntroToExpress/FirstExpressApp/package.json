@@ -1,0 +1,16 @@
+{
+  "name": "firstexpressapp",
+  "version": "1.0.0",
+  "description": "Fist Express app with package",
+  "main": "app.js",
+  "dependencies": {
+    "cat-me": "^1.0.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Javier Arboleda",
+  "license": "ISC"
+}

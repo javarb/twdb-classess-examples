@@ -1,0 +1,18 @@
+<h1>RESULTS PAGE!!!</h1>
+
+<% var b=book %>
+<h2>The book: <%= b %></h2>
+<h2>Version: <%= data["translation_name"]%> </h2>
+<ul>
+<% data["verses"].forEach(function(verse){ %>    
+    <li> 
+        [<%= verse["chapter"] %>:<%= verse["verse"] %>] 
+        <em>
+            <%= verse["text"] %>
+        </em>
+    </li>
+<% }); %>
+
+</ul>
+
+<a href="/">Search Again</a>

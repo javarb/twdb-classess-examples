@@ -1,0 +1,82 @@
+<!--We include the partials header.ejs -->
+<% include partials/header %>
+
+<!--
+    Esta no es la mejor practica para añadir estilos y en este caso solo funcionaria dentro de este template.
+    Inconvenientes:
+        1.Tengo que repetir este estilo dentro de todos los templates
+        2. Se esta usando el style tag y es mejor usar una hoja de estilos externa e importarla aqui
+        
+    Para algo que se aplique a todo, toca incluir globalmente el CSS dentro de la aplicación
+-->
+<!--<style>
+    body {
+        color: purple;
+    }
+</style>-->
+<!--
+    Usamos entonces una hoja de estilos. En vez de crearla en este directorio la creamos en un directorio dónde ponemos todos 
+    nuestros estilos
+    NOTA: 
+    Aunque el archivo se crea en EJSDemo/public, aqui no hace falta poner public/aṕp.css, ya que le decimos a Express que nuestros 
+    CSS y JavaScript están dentro de "public"
+    
+    Este include se tendría que hacer manualmente en todos los archivos que se quiera que tengan este estilo
+-->
+<!--Lo pusimos en el partials header.ejs-->
+<!--<link rel="stylesheet" href="app.css">-->
+
+<h1>The Posts Page</h1>
+
+<!--this way just prints the array of objects. We need to iterate to see the elements-->
+<!-- We use the <%= %> notation when we need to retrieve data to the HTML--> 
+<!--<%= posts %>-->
+
+<!-- For the logic we use the <% %> notation since we need onlythe logic (nothing from JS to print in the HTML)
+    But we need to show the content of the objects in the HTML so we need to use <%= %> --> 
+
+<!--NOTA: 
+Si hay problemas con espacios entre los lis, borrar espacios al principio y al final y reemplazar por tabuladores para indentar 
+-->
+
+<h2>For Loop</h2>
+<ul>
+<% for (var i = 0 ; i < posts.length ; i++){ %>
+    <li>
+        <%= posts[i].title %> - <strong><%= posts[i].author %></strong>
+    </li>
+<% } %>
+</ul>
+
+<h2>Con foreach</h2>
+<p>Más común y mas simple de usar y no hay necesidad de usar indices, solo el nombre del objeto o la variable</p>
+
+<ul>
+<% posts.forEach(function(post) { %>
+    <li>
+        <%= post.title %> - <strong><%= post.author %></strong>
+    </li>  
+<% }) %>
+</ul>
+
+
+<!--When are necessary semicolons
+Semicolons are necessary here-->
+<ul>
+<% posts.forEach(function(post) { %>
+    <% console.log(post.title); console.log(post.author)%>
+<% }) %>
+</ul>
+
+ 
+ <!--But no here-->
+<ul>
+<% posts.forEach(function(post) { %>       
+      <% console.log(post.title) %>      
+      <% console.log(post.author) %>    
+<% }) %>
+</ul>
+
+
+<!--We include the partials footer.ejs-->
+<% include partials/footer %>

@@ -1,0 +1,22 @@
+<!--We include the partials header.ejs -->
+<% include partials/header %>
+
+<!--<%= %> - Lo que vaya adentro es tratado como JavaScript y el resultado se retorna (se muestra) al HTML. Ej:-->
+<!--<h1>Do you like: 5 + 5 = <%= 5 + 5 %></h1>-->
+
+<!--We need to print the variable coming from the request, so there we need to send to use in this template-->
+<h1>Do you like: <%= thingVar.toUpperCase() %></h1>
+
+<!-- <% %> For logic that we not want to return (to show) result to our HTML
+IF we use <%= %> It will produce an error like: "SyntaxError: Unexpected token if ..."-->
+<% if( thingVar.toLowerCase() === "to pray" ){ %>
+    <p>Good Choice!</p>
+<% } else { %>
+    <p>Bad choice! you should have said: to pray</p>
+<% } %>
+
+<p>This is the like.ejs file</p>
+
+
+<!--We include the partials footer.ejs-->
+<% include partials/footer %>
